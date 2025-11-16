@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="create.js" type="module"></script>
+  <title>Create</title>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left" onclick="window.location='index.html'">The Community Wall</div>
+  <div class="nav-right">
+    <a href="/">Home</a>
+    <a href="create">Add Tile</a>
+    <a href="mosaic">Wall</a>
+    <a href="about">About</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Add Your Tile</h1>
+  <p class="subtitle">
+    Upload your drawing. It becomes one tile in the global mosaic.
+  </p>
+
+  <label class="upload-box">
+    <span>Click here to upload your drawing</span>
+    <input type="file" id="fileInput" accept="image/*">
+  </label>
+
+  <div class="tile-preview" id="preview"></div>
+
+  <button id="submitBtn" style="display:none;">Submit Tile</button>
+</div>
+
+</body>
+</html>

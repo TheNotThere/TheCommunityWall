@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>The Community Wall</title>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left" onclick="window.location='index.html'">The Community Wall</div>
+  <div class="nav-right">
+    <a href="/">Home</a>
+    <a href="create">Add Tile</a>
+    <a href="mosaic">Wall</a>
+    <a href="about">About</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>The Community Wall</h1>
+  <p class="subtitle">A permanent wall of images made by different people.</p>
+
+  <div class="mosaic-grid" id="grid"></div>
+</div>
+
+<script>
+async function loadTiles() {
+  const res = await fetch("/api/tiles");
+
+  const tiles = await res.json();          // this is the array of URLs
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  tiles.forEach(tileUrl => {
+    const div = document.createElement("div");
+    div.className = "mosaic-tile";
+    div.style.backgroundImage = `url(${tileUrl})`; // use the URL directly
+    grid.appendChild(div);
+  });
+}
+
+loadTiles();
+</script>
+
+</body>
+</html>
